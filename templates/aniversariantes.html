@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+  <title>Aniversariantes do Mês</title>
+</head>
+<body>
+  <h1>🥳🎉🎂 Aniversariantes do Mês 🥳🎉🎂</h1>
+  {%if aniversariantes %}
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>Nome</th>
+      <th>Data de Nascimento</th>
+      <th>Contato</th>
+    </tr>
+    {%for membro in aniversariantes %}
+    <tr>
+      <td>{{membro.nome}}</td>
+      <td>{{membro.data_nascimento.strftime('%d/%m/%y')}}</td>
+      <td>{{membro.contato or "-"}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  {% else %}
+  <p>Nenhum aniversariate este mês</p>
+  {% endif %}
+
+  <br>
+  <a href="membros/visualizar">Voltar para a lista de membros</a>
+</body>
+</html>

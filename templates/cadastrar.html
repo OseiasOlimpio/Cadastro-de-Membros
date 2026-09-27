@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Cadastrar Membro</title>
+</head>
+<body>
+    <h1>Cadastrar Novo Membro</h1>
+    <form action="/membros/cadastrar" method="post">
+        <label>Nome Completo</label>
+        <input type="text" name="nome" required><br><br>
+        <label>Data de Nascimento</label>
+        <input type="date" name="data_nascimento"><br><br>
+        <label>Contato</label>
+        <input type="text" name="contato" required><br><br>
+        <label>Função</label>
+        <input type="text" name="funcao" required><br><br>
+        <label>Status</label>
+        <select name="status" required>
+            <option value="Ativo">Ativo</option>
+            <option value="Inativo">Inativo</option>
+        </select><br><br>
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <br>
+    <a href="/membros/visualizar">Ver lista de membros</a>
+</body>
+</html>

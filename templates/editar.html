@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+  <title>Editar Cadastro de Membro</title>
+</head>
+<body>
+  <h1>Editar Cadastro de Membro</h1>
+  <form action="/membros/{{membro.id}}/editar" method="post">
+    <label >Nome:</label></br>
+    <input type="text" name="nome" value="{{membro.nome}}" required><br><br>
+
+    <label>Contato:</label>
+    <input type="text" name="contato" value="{{membro.contato or ''}}"><br><br>
+
+    <label>Data de Nascimento:</label><br>
+    <input type="date" name="data_nascimento" value="{{membro.data_nascimento or ''}}"><br><br>
+
+    <label>Função:</label>
+    <input type="text" name="funcao" value="{{membro.funcao or ''}}"><br><br>
+
+    <label>Status:</label>
+    <select name="status">
+      <option value="ativo" {%if membro.status == "ativo"%}selected{%endif%}>Ativo</option>
+      <option value="inativo" {%if membro.status == "inativo"%}selected{%endif%}>Inativo</option>
+    </select><br><br>
+
+    <button type="submit">Salvar Alterações</button>
+  </form>
+
+  <br>
+  <a href="/membros/visualizar">Cancelar e Voltar</a>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/style.css">
+
+        <title>Membros da Igreja</title>
+    </head>
+    <body>
+        <h1>Membros da Igreja</h1>
+
+        <form action="/membros/visualizar" method="get">
+            <input type="text" name="busca" placeholder="Buscar por nome..." value="{{busca}}">
+
+            <select name="status">
+                <option value="">Todos os status</option>
+                <option value="ativo" {%if status_filtro == 'ativo'%}selected{%endif%}>Ativo</option>
+                <option value="inativo" {%if status_filtro == 'inativo'%}selected{%endif%}>Inativo</option>
+            </select>
+
+            <button type="submit">Filtrar</button>
+            <a href="/membros/visualizar">Limpar filtro</a>
+        </form>
+
+        <table border="1" cellpadding="8">
+            <tr>
+                <th>Nome</th>
+                <th>Contato</th>
+                <th>Data de Nascimento</th>
+                <th>Função</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+            {%for membro in membros %}
+            <tr>
+                <td>{{ membro.nome }}</td>
+                <td>{{ membro.contato }}</td>
+                <td>{{ membro.data_nascimento }}</td>
+                <td>{{ membro.funcao }}</td>
+                <td>{{ membro.status }}</td>
+                <td>
+                   <a href="/membros/{{membro.id}}/editar">Editar</a>
+                    &nbsp;|&nbsp;
+                    <form
+                        action="/membro/{{membro_id}}/excluir"
+                        method="post"
+                        style="display: inline"
+                        onsubmit="return confirm('Tem certeza que deseja excluir {{membro.nome}}?')"
+                    >
+                        <button type="submit">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/membros/cadastrar">+ Cadastrar Novo Membro</a>
+    </body>
+</html>
