@@ -19,7 +19,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 def home():
-    return {"mensagem": "Sistema de Cadastro da Igreja funcionando!"}
+    return RedirectResponse(url="/membros/visualizar")
 
 
 # ==== Cria membro ===#
