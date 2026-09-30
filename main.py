@@ -17,9 +17,10 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-@app.get("/")
-def home():
-    return RedirectResponse(url="/membros/visualizar")
+
+@app.get("/", response_class=None)
+def home(request: Request):
+    return templates.TemplateResponse(request, "home.html", {})
 
 
 # ==== Cria membro ===#
@@ -40,11 +41,16 @@ def listar_membros(db: Session = Depends(get_db)):
 
 # ====== Cria rota para visualizar membros =======
 @app.get("/membros/visualizar", response_class=None)
-def visualizar_membros(request: Request, busca:Optional[str] = None, status:Optional[str] = None, db: Session = Depends(get_db)):
+def visualizar_membros(
+    request: Request,
+    busca: Optional[str] = None,
+    status: Optional[str] = None,
+    db: Session = Depends(get_db),
+):
     query = db.query(models.Membro)
 
     if busca:
-        query = query.filter(models.Membro.nome.ilike(f'%{busca}%'))
+        query = query.filter(models.Membro.nome.ilike(f"%{busca}%"))
     if status:
         query = query.filter(models.Membro.status.ilike(status))
     membros = query.all()
@@ -52,7 +58,7 @@ def visualizar_membros(request: Request, busca:Optional[str] = None, status:Opti
     return templates.TemplateResponse(
         request,
         "listar.html",
-        {"membros": membros, "busca": busca or "", "status_filtro": status or ""}
+        {"membros": membros, "busca": busca or "", "status_filtro": status or ""},
     )
 
 
@@ -180,5 +186,3 @@ def excluir_membro(membro_id: int, db: Session = Depends(get_db)):
     db.delete(membro)
     db.commit()
     return {"mensagem": f"Membro '{membro.nome}' excluido com sucesso!"}
-
-

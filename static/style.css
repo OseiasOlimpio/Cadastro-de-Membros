@@ -1,87 +1,195 @@
-*{
-  margin: 0;
-  box-sizing: border-box;
+* {
+    margin: 0;
+    box-sizing: border-box;
 }
 
-body{
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
-  margin: 0;
-  padding: 20px;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
 }
 
-h1{
-  color: #2c3e50;
-  border-bottom: 2px solid #2c3e50;
-  padding-bottom: 10px;
+h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
 }
 
-table{
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  margin-top: 20px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-th, td{
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-th{
-  background-color: #2c3e50;
-  color: #fff;
+th {
+    background-color: #2c3e50;
+    color: #fff;
 }
 
-tr:hover{
-  background-color: #f1f1f1;
+tr:hover {
+    background-color: #f1f1f1;
 }
 
-a{
-  color:#2c3e50;
-  text-decoration: none;
-  font-weight: bold;
+a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-a:hover{
-  text-decoration: underline;
+a:hover {
+    text-decoration: underline;
 }
 
-form{
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 6px;
-  box-shadow: 0 1px rgba(0,0,0,0.1);
-  max-width: 400px;
-  margin-top: 20px;
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-top: 20px;
 }
 
-label{
-  font-weight: bold;
+label {
+    font-weight: bold;
 }
 
-input, select{
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-button{
-  background-color: #2c3e50;
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
+button {
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-button:hover{
-  background-color: #1a252f;
+button:hover {
+    background-color: #1a252f;
+}
+
+/*Home*/
+
+.home-body{
+    background-color: #f6f3ec;
+    margin: 0;
+    padding: 0;
+}
+
+.home-shell{
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 72px 24px 48px;
+}
+
+.home-kicker{
+    font-family: "Source sans 3", Arial, sans-serif;
+    font-size: 15px;
+    color:#8a8272;
+    margin:0 0 8px;
+
+}
+.home-wordmark {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1;
+    color: #2c3e50;
+    margin: 0;
+    border-bottom: none;     /* ← anula a borda herdada do h1 genérico */
+    padding-bottom: 0;       /* ← anula o padding herdado também */
+}
+
+.home-wordmark-sub{
+    display: block;
+    font-weight: 500;
+    font-size: 28px;
+    color: #b8863b;
+    margin-top: 6px;
+}
+
+.home-tagline{
+    font-family: "Source Sans 3", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #5a5346;
+    max-width: 44ch;
+    margin: 24px 0 0;
+}
+
+.home-index{
+    margin-top: 56px;
+    border-top: 1px solid #d8d2c4;
+}
+
+.home-index-item{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 4px;
+    border-bottom: 1px solid #d8d2c4;
+    text-decoration: none;
+    transition: padding-left 0.15s ease;
+}
+
+.home-index-item:hover{
+    padding-left: 10px;
+}
+
+.home-index-icon{
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    color: #b8863b;
+}
+
+.home-index-icon svg{
+    width: 100%;
+    height: 100%;
+}
+
+.home-index-text{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.home-index-title{
+    font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.home-index-desc{
+    font-family: "Source Sans 3", Arial, sans-serif;
+    font-size: 14px;
+    color: #8a8272;
+}
+
+.home-footer{
+    margin-top: 40px;
+    font-family: "Source Sans 3", Arial, sans-serif;
+    font-size: 14px;
+    color: #8a8272;
 }
